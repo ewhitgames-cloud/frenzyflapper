@@ -537,7 +537,21 @@ const Game = (()=>{
     clouds = Array.from({length: 5}, () => ({ x: Math.random()*innerWidth, y: 40 + Math.random()*200, w: 60+Math.random()*120, h: 20+Math.random()*15, speed: 12+Math.random()*18 }));
     lastSpawn=0; tPrev=0; score=0; updateScoreUI();
   }
-  function start(){ reset(); running=true; coinsEl.textContent=coins; bestScoreEl.textContent=best; ui.classList.add('hidden'); requestAnimationFrame(loop); }
+  function start() {
+  // Always hide other screens when starting or retrying
+  Object.entries(screens).forEach(([k, el]) => {
+    el.classList.toggle('hidden', k !== 'game');
+  });
+
+  resize();
+  bestScoreEl.textContent = best;
+  scoreEl.textContent = '0';
+  coinsEl.textContent = coins;
+  reset();
+  running = true;
+  ui.classList.add('hidden'); // Hide Game Over UI
+  requestAnimationFrame(loop);
+}
   function gameOver(){ running=false; finalScoreEl.textContent=score; if(score>best){ setBest(score); } ui.classList.remove('hidden'); }
 
   let wantFlap=false; const flap=()=>{ wantFlap=true; };
@@ -632,7 +646,21 @@ const Game = (()=>{
     requestAnimationFrame(loop);
   }
 
-  function start(){ resize(); bestScoreEl.textContent = best; scoreEl.textContent='0'; coinsEl.textContent=coins; reset(); running=true; requestAnimationFrame(loop); }
+  function start() {
+  // Always hide other screens when starting or retrying
+  Object.entries(screens).forEach(([k, el]) => {
+    el.classList.toggle('hidden', k !== 'game');
+  });
+
+  resize();
+  bestScoreEl.textContent = best;
+  scoreEl.textContent = '0';
+  coinsEl.textContent = coins;
+  reset();
+  running = true;
+  ui.classList.add('hidden'); // Hide Game Over UI
+  requestAnimationFrame(loop);
+}
   return { start };
 })();
 
