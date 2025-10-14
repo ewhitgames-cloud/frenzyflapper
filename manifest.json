@@ -1,0 +1,11 @@
+{
+  "background_color": "#0b0d29",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "ewhitgames-cloud.github",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "ewhitgames-cloud.github",
+  "start_url": "https://ewhitgames-cloud.github.io/frenzyflapper/",
+  "theme_color": "#0b0d29"
+}
