@@ -7,5 +7,12 @@
   "scope": "/",
   "short_name": "ewhitgames-cloud.github",
   "start_url": "https://ewhitgames-cloud.github.io/frenzyflapper/",
-  "theme_color": "#0b0d29"
+  "theme_color": "#0b0d29",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ]
 }
